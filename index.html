@@ -150,29 +150,33 @@
     let roundData = {};
 
     function saveHole() {
-      const hole = document.getElementById("hole").value;
-      const drive = document.getElementById("drive").value;
-      const shots = document.getElementById("shots").value;
-      const putts = document.getElementById("putts").value;
-      const club = document.getElementById("club").value;
-      const approachClub = document.getElementById("approachClub").value;
-      const approach = document.getElementById("approach").value;
-      const greenHit = document.getElementById("greenHit").value;
-      const gir = document.getElementById("gir").value;
-      const fairwayHit = document.getElementById("fairwayHit").value;
-      const penaltyShots = document.getElementById("penaltyShots").value;
-      const sandShots = document.getElementById("sandShots").value;
-      const upDown = document.getElementById("upDown").value;
+  const hole = document.getElementById("hole").value;
+  const drive = document.getElementById("drive").value;
+  const shots = document.getElementById("shots").value;
+  const putts = document.getElementById("putts").value;
+  const club = document.getElementById("club").value;
+  const approachClub = document.getElementById("approachClub").value;
+  const approach = document.getElementById("approach").value;
+  const greenHit = document.getElementById("greenHit").value;
+  const gir = document.getElementById("gir").value;
+  const fairwayHit = document.getElementById("fairwayHit").value;
+  const penaltyShots = document.getElementById("penaltyShots").value;
+  const sandShots = document.getElementById("sandShots").value;
+  const upDown = document.getElementById("upDown").value;
 
-      roundData[hole] = {
-        hole, drive, shots, putts, club,
-        approachClub, approach, greenHit,
-        gir, fairwayHit, penaltyShots, sandShots, upDown
-      };
+  roundData[hole] = {
+    hole, drive, shots, putts, club,
+    approachClub, approach, greenHit,
+    gir, fairwayHit, penaltyShots, sandShots, upDown
+  };
 
-      alert(`Hole ${hole} saved.`);
-      if (hole < 18) document.getElementById("hole").value = parseInt(hole) + 1;
-    }
+  // Save to localStorage
+  localStorage.setItem("golfRoundData", JSON.stringify(roundData));
+
+  alert(`Hole ${hole} saved.`);
+  if (hole < 18) document.getElementById("hole").value = parseInt(hole) + 1;
+}
+
 
     function exportCSV() {
       const headers = [
