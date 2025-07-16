@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Golf Round Tracker</title>
   <style>
     body {
@@ -37,9 +37,9 @@
 </head>
 <body>
   <h2>Golf Round Tracker</h2>
+
   <label for="hole">Hole:</label>
   <select id="hole">
-    <!-- Options 1 to 18 -->
     <script>
       for (let i = 1; i <= 18; i++) {
         document.write(`<option value="${i}">${i}</option>`);
@@ -65,7 +65,7 @@
     <option>Wood</option>
     <option>Driver</option>
   </select>
-  
+
   <label for="drive">Driving Distance (yds):</label>
   <input type="number" id="drive">
 
@@ -75,8 +75,8 @@
   <label for="putts">Number of Putts:</label>
   <input type="number" id="putts">
 
-  <label for="club">Approach Club:</label>
-    <select id="club">
+  <label for="approachClub">Approach Club:</label>
+  <select id="approachClub">
     <option value="">Select Club</option>
     <option>60°</option>
     <option>56°</option>
@@ -97,6 +97,50 @@
   <label for="approach">Approach Distance (m):</label>
   <input type="number" id="approach">
 
+  <label for="greenHit">Green Hit:</label>
+  <select id="greenHit">
+    <option>miss short</option>
+    <option>miss long</option>
+    <option>miss left</option>
+    <option>miss right</option>
+    <option>hit left</option>
+    <option>hit right</option>
+    <option>hit short</option>
+    <option>hit long</option>
+    <option>hit centre</option>
+  </select>
+
+  <label for="gir">GIR:</label>
+  <select id="gir">
+    <option>yes</option>
+    <option>no</option>
+    <option>no chance to hit</option>
+  </select>
+
+  <label for="fairwayHit">Fairway Hit?</label>
+  <select id="fairwayHit">
+    <option>miss left</option>
+    <option>miss right</option>
+    <option>miss short</option>
+    <option>miss long</option>
+    <option>hit left</option>
+    <option>hit right</option>
+    <option>hit centre</option>
+  </select>
+
+  <label for="penaltyShots">Penalty Shots:</label>
+  <input type="number" id="penaltyShots">
+
+  <label for="sandShots">Greenside Sand Shots:</label>
+  <input type="number" id="sandShots">
+
+  <label for="upDown">Up and Down:</label>
+  <select id="upDown">
+    <option>yes</option>
+    <option>no</option>
+    <option>N/A</option>
+  </select>
+
   <div class="button-row">
     <button onclick="saveHole()">Save Hole</button>
     <button onclick="exportCSV()">Export CSV</button>
@@ -111,17 +155,31 @@
       const shots = document.getElementById("shots").value;
       const putts = document.getElementById("putts").value;
       const club = document.getElementById("club").value;
+      const approachClub = document.getElementById("approachClub").value;
       const approach = document.getElementById("approach").value;
+      const greenHit = document.getElementById("greenHit").value;
+      const gir = document.getElementById("gir").value;
+      const fairwayHit = document.getElementById("fairwayHit").value;
+      const penaltyShots = document.getElementById("penaltyShots").value;
+      const sandShots = document.getElementById("sandShots").value;
+      const upDown = document.getElementById("upDown").value;
 
-      roundData[hole] = { hole, drive, shots, putts, club, approach };
+      roundData[hole] = {
+        hole, drive, shots, putts, club,
+        approachClub, approach, greenHit,
+        gir, fairwayHit, penaltyShots, sandShots, upDown
+      };
+
       alert(`Hole ${hole} saved.`);
-
-      // Optional: auto advance to next hole
       if (hole < 18) document.getElementById("hole").value = parseInt(hole) + 1;
     }
 
     function exportCSV() {
-      const headers = ["Hole", "Driving Distance", "Shots", "Putts", "Club", "Approach Distance"];
+      const headers = [
+        "Hole", "Driving Distance", "Shots", "Putts", "Tee Club",
+        "Approach Club", "Approach Distance", "Green Hit", "GIR",
+        "Fairway Hit", "Penalty Shots", "Greenside Sand Shots", "Up and Down"
+      ];
       const rows = [headers];
 
       for (let i = 1; i <= 18; i++) {
@@ -132,7 +190,14 @@
           data.shots || "",
           data.putts || "",
           data.club || "",
-          data.approach || ""
+          data.approachClub || "",
+          data.approach || "",
+          data.greenHit || "",
+          data.gir || "",
+          data.fairwayHit || "",
+          data.penaltyShots || "",
+          data.sandShots || "",
+          data.upDown || ""
         ]);
       }
 
