@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Golf Round Tracker&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 500px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 1em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h2 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>label {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input, select {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 48%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.button-row {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h2&gt;Golf Round Tracker&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;label for="hole"&gt;Hole:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;select id="hole"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Options 1 to 18 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>for (let i = 1; i &lt;= 18; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.write(`&lt;option value="${i}"&gt;${i}&lt;/option&gt;`);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/select&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;label for="drive"&gt;Driving Distance (m):&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;input type="number" id="drive"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;label for="shots"&gt;Number of Shots:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;input type="number" id="shots"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;label for="putts"&gt;Number of Putts:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;input type="number" id="putts"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;label for="club"&gt;Approach Club:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;select id="club"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;option value=""&gt;Select Club&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;option&gt;PW&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;option&gt;9i&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;option&gt;8i&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;option&gt;7i&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;option&gt;6i&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;option&gt;5i&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;option&gt;Hybrid&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;option&gt;Wood&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/select&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;label for="approach"&gt;Approach Distance (m):&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;input type="number" id="approach"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="button-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="saveHole()"&gt;Save Hole&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="exportCSV()"&gt;Export CSV&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let roundData = {};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function saveHole() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const hole = document.getElementById("hole").value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const drive = document.getElementById("drive").value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const shots = document.getElementById("shots").value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const putts = document.getElementById("putts").value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const club = document.getElementById("club").value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const approach = document.getElementById("approach").value;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>roundData[hole] = { hole, drive, shots, putts, club, approach };</p>
+<p class="p1"><span class="Apple-converted-space">      </span>alert(`Hole ${hole} saved.`);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Optional: auto advance to next hole</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (hole &lt; 18) document.getElementById("hole").value = parseInt(hole) + 1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function exportCSV() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const headers = ["Hole", "Driving Distance", "Shots", "Putts", "Club", "Approach Distance"];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const rows = [headers];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>for (let i = 1; i &lt;= 18; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const data = roundData[i] || {};</p>
+<p class="p1"><span class="Apple-converted-space">        </span>rows.push([</p>
+<p class="p1"><span class="Apple-converted-space">          </span>data.hole || i,</p>
+<p class="p1"><span class="Apple-converted-space">          </span>data.drive || "",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>data.shots || "",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>data.putts || "",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>data.club || "",</p>
+<p class="p1"><span class="Apple-converted-space">          </span>data.approach || ""</p>
+<p class="p1"><span class="Apple-converted-space">        </span>]);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const csvContent = rows.map(e =&gt; e.join(",")).join("\n");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const url = URL.createObjectURL(blob);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const link = document.createElement("a");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>link.setAttribute("href", url);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>link.setAttribute("download", "golf_round.csv");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>link.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.body.appendChild(link);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>link.click();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.body.removeChild(link);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
