@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golf Round Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: auto;
+      padding: 1em;
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+    }
+    button {
+      margin-top: 15px;
+      width: 48%;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .button-row {
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <h2>Golf Round Tracker</h2>
+  <label for="hole">Hole:</label>
+  <select id="hole">
+    <!-- Options 1 to 18 -->
+    <script>
+      for (let i = 1; i <= 18; i++) {
+        document.write(`<option value="${i}">${i}</option>`);
+      }
+    </script>
+  </select>
+
+  <label for="drive">Driving Distance (m):</label>
+  <input type="number" id="drive">
+
+  <label for="shots">Number of Shots:</label>
+  <input type="number" id="shots">
+
+  <label for="putts">Number of Putts:</label>
+  <input type="number" id="putts">
+
+  <label for="club">Approach Club:</label>
+  <select id="club">
+    <option value="">Select Club</option>
+    <option>PW</option>
+    <option>9i</option>
+    <option>8i</option>
+    <option>7i</option>
+    <option>6i</option>
+    <option>5i</option>
+    <option>Hybrid</option>
+    <option>Wood</option>
+  </select>
+
+  <label for="approach">Approach Distance (m):</label>
+  <input type="number" id="approach">
+
+  <div class="button-row">
+    <button onclick="saveHole()">Save Hole</button>
+    <button onclick="exportCSV()">Export CSV</button>
+  </div>
+
+  <script>
+    let roundData = {};
+
+    function saveHole() {
+      const hole = document.getElementById("hole").value;
+      const drive = document.getElementById("drive").value;
+      const shots = document.getElementById("shots").value;
+      const putts = document.getElementById("putts").value;
+      const club = document.getElementById("club").value;
+      const approach = document.getElementById("approach").value;
+
+      roundData[hole] = { hole, drive, shots, putts, club, approach };
+      alert(`Hole ${hole} saved.`);
+
+      // Optional: auto advance to next hole
+      if (hole < 18) document.getElementById("hole").value = parseInt(hole) + 1;
+    }
+
+    function exportCSV() {
+      const headers = ["Hole", "Driving Distance", "Shots", "Putts", "Club", "Approach Distance"];
+      const rows = [headers];
+
+      for (let i = 1; i <= 18; i++) {
+        const data = roundData[i] || {};
+        rows.push([
+          data.hole || i,
+          data.drive || "",
+          data.shots || "",
+          data.putts || "",
+          data.club || "",
+          data.approach || ""
+        ]);
+      }
+
+      const csvContent = rows.map(e => e.join(",")).join("\n");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", "golf_round.csv");
+      link.style.display = "none";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
